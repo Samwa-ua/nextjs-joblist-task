@@ -1,41 +1,35 @@
-import { DUMMY_DATA } from "../../utils/mockdata";
-import JobDetail from "../components/JobDetail";
+import JobDetail from "../../components/JobDetail";
 
 const JobDetails = (props: any) => {
-  console.log(props);
-
-  return <JobDetail {...props.jobData} />;
+  return <JobDetail {...props.jobsData} />;
 };
 
-export function getStaticPaths() {
-  const jobsList = DUMMY_DATA;
+export async function getStaticPaths() {
+  const res = await fetch(
+    "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu"
+  );
+  const jobsList = await res.json();
+  const paths = jobsList.map((job: any) => ({
+    params: { jobsId: job.id },
+  }));
 
   return {
+    paths,
     fallback: false,
-    paths: jobsList.map((job) => ({
-      params: { jobsId: job.id },
-    })),
   };
 }
 
-export function getStaticProps(context: any) {
+export async function getStaticProps(context: any) {
   const jobsId = context.params.jobsId;
-  // console.log(jobsId);
-
-  const jobCollection = DUMMY_DATA;
-
-  const selectedJob = jobCollection.find((el) => (el.id = jobsId));
+  const res = await fetch(
+    "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu"
+  );
+  const data = await res.json();
+  const jobsData = data.find((el: any) => el.id === jobsId);
 
   return {
     props: {
-      jobData: {
-        id: selectedJob?.id,
-        title: selectedJob?.title,
-        name: selectedJob?.name,
-        description: selectedJob?.description,
-        email: selectedJob?.email,
-        phone: selectedJob?.phone,
-      },
+      jobsData,
     },
   };
 }

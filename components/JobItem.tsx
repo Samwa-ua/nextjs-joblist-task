@@ -5,7 +5,7 @@ import Card from "./ui/Card";
 const JobItem = (props: any) => {
   const router = useRouter();
   const showDetailsHandler = () => {
-    router.replace("/" + props.id);
+    router.push("/" + props.id);
   };
 
   return (
