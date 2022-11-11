@@ -2,13 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 
 const JobDetail = (props: any) => {
+  const convertSalary = (salary: string) => {
+    return salary
+      .split("-")
+      .map((el) => el.replace("k", ".000"))
+      .join("-");
+  };
   return (
     <section className="container mx-auto my-12 ">
       <div className="flex justify-between gap-2">
         <div className="w-2/3 px-6">
-          <div className="flex justify-between ">
+          <div className="flex">
             <h2 className="text-3xl font-bold">Job Details</h2>
-            <div className="flex ml-auto gap-1">
+            <div className="flex ml-auto gap-2">
               <span>
                 <Image
                   src="/images/Bookmark_icon.png"
@@ -18,8 +24,6 @@ const JobDetail = (props: any) => {
                 />
               </span>
               <p>Save to my list</p>
-            </div>
-            <div className="flex gap-1 ml-auto">
               <span>
                 <Image
                   src="/images/Share_icon.png"
@@ -40,7 +44,7 @@ const JobDetail = (props: any) => {
           <div className="flex">
             <h1 className="flex-1 w-500 font-bold">{props.title}</h1>
             <div>
-              <p>{props.salary}</p>
+              <p>{convertSalary(props.salary)}</p>
               <p>Brutto, per year</p>
             </div>
           </div>
