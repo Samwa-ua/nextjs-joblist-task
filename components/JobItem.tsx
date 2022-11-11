@@ -31,9 +31,9 @@ const JobItem = (props: any) => {
               </h3>
               <span>
                 <Image
-                  src="/images/Bookmark.png"
-                  width={32}
-                  height={32}
+                  src="/images/Bookmark_icon.png"
+                  width={18}
+                  height={20}
                   alt="Bookmark"
                 />
               </span>

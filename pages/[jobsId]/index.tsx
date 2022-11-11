@@ -1,16 +1,20 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import JobDetail from "../../components/JobDetail";
+import { DUMMY_DATA } from "../../utils/mockdata";
 
 const JobDetails = (props: any) => {
   return <JobDetail {...props.jobsData} />;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(
-    "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu"
-  );
-  const jobsList = await res.json();
+  // const res = await fetch(
+  //   "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu"
+  // );
+  // const jobsList = await res.json();
+
+  const jobsList = DUMMY_DATA;
+
   const paths = jobsList.map((job: any) => ({
     params: { jobsId: job.id },
   }));
@@ -24,10 +28,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const jobsId = context.params?.jobsId;
 
-  const res = await fetch(
-    "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu"
-  );
-  const data = await res.json();
+  // const res = await fetch(
+  //   "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu"
+  // );
+  // const data = await res.json();
+
+  const data = DUMMY_DATA;
+
   const jobsData = data.find((job: any) => job.id === jobsId);
 
   return {
