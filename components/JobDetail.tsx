@@ -3,12 +3,24 @@ import Image from "next/image";
 import imageLoader from "../utils/imageLoader";
 
 const JobDetail = (props: any) => {
+  console.log(props.createdAt);
+
   const convertSalary = (salary: string) => {
     return salary
       .split("-")
       .map((el) => el.replace("k", ".000"))
       .join("-");
   };
+
+  const convertDate = (isoDate: Date) => {
+    const date = new Date(isoDate);
+    return date.toLocaleDateString("en-Gb", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+  };
+
   return (
     <section className="container mx-auto my-12 ">
       <div className="flex justify-between gap-2">
@@ -49,12 +61,14 @@ const JobDetail = (props: any) => {
           <div className="flex">
             <h1 className="flex-1 w-500 font-bold">{props.title}</h1>
             <div>
-              <p>{convertSalary(props.salary)}</p>
+              <p className="font-bold">€ {convertSalary(props.salary)}</p>
               <p>Brutto, per year</p>
             </div>
           </div>
           <div>
-            <p className="font-thin text-textFaint">Posted 2 days ago</p>
+            <p className="font-thin text-textFaint">
+              {convertDate(props.createdAt)}
+            </p>
             <p>
               At WellStar, we all share common goals. That’s what makes us so
               successful – and such an integral part of our communities. We want

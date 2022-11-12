@@ -1,17 +1,22 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import JobDetail from "../../components/JobDetail";
+import { Job } from "../../types/types";
 import { DUMMY_DATA } from "../../utils/mockdata";
 
 const JobDetails = (props: any) => {
-  return <JobDetail {...props.jobsData} />;
+  return (
+    <div className="bg-white">
+      <JobDetail {...props.jobsData} />
+    </div>
+  );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // const res = await fetch(
   //   "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu"
   // );
-  // const jobsList = await res.json();
+  // const jobsList: Job[] = await res.json();
 
   const jobsList = DUMMY_DATA;
 
