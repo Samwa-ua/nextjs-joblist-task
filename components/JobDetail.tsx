@@ -1,5 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import imageLoader from "../utils/imageLoader";
 
 const JobDetail = (props: any) => {
   const convertSalary = (salary: string) => {
@@ -17,6 +18,8 @@ const JobDetail = (props: any) => {
             <div className="flex ml-auto gap-2">
               <span>
                 <Image
+                  loader={imageLoader}
+                  unoptimized
                   src="/images/Bookmark_icon.png"
                   width={18}
                   height={20}
@@ -26,6 +29,8 @@ const JobDetail = (props: any) => {
               <p>Save to my list</p>
               <span>
                 <Image
+                  loader={imageLoader}
+                  unoptimized
                   src="/images/Share_icon.png"
                   width={18}
                   height={20}
@@ -103,17 +108,29 @@ const JobDetail = (props: any) => {
           <div className="my-6">
             <h3 className="font-bold">Attached images</h3>
             <div className="flex gap-2 h-52 justify-between ">
-              <img
+              <Image
+                loader={imageLoader}
+                unoptimized
+                width={200}
+                height={100}
                 className="bg-cover rounded-md"
                 src={props.pictures[0]}
                 alt="temp"
               />
-              <img
+              <Image
+                loader={imageLoader}
+                unoptimized
+                width={200}
+                height={100}
                 className="bg-cover rounded-md"
                 src={props.pictures[1]}
                 alt="temp"
               />
-              <img
+              <Image
+                loader={imageLoader}
+                unoptimized
+                width={200}
+                height={100}
                 className="bg-cover rounded-md"
                 src={props.pictures[2]}
                 alt="temp"

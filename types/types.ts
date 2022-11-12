@@ -1,4 +1,4 @@
-export interface GetJobResult {
+export interface GetJobResults {
     info: Info,
     data: Job[],
 }

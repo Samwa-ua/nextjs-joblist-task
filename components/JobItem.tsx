@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import imageLoader from "../utils/imageLoader";
 
 import Card from "./ui/Card";
 
@@ -15,6 +16,8 @@ const JobItem = (props: any) => {
         <div className="p-3 flex">
           <div className="flex-none pt-4">
             <Image
+              loader={imageLoader}
+              unoptimized
               src="/images/template_avatar.png"
               width={85}
               height={85}
@@ -31,6 +34,8 @@ const JobItem = (props: any) => {
               </h3>
               <span>
                 <Image
+                  loader={imageLoader}
+                  unoptimized
                   src="/images/Bookmark_icon.png"
                   width={18}
                   height={20}
@@ -44,6 +49,8 @@ const JobItem = (props: any) => {
               </p>
               <span>
                 <Image
+                  loader={imageLoader}
+                  unoptimized
                   src="/images/Rating.png"
                   width={96}
                   height={18}
@@ -54,6 +61,8 @@ const JobItem = (props: any) => {
             <div className="flex">
               <span>
                 <Image
+                  loader={imageLoader}
+                  unoptimized
                   className="pt-1"
                   src="/images/Location.png"
                   width={13}
