@@ -1,15 +1,24 @@
-import { GetStaticProps } from "next";
+import { GetStaticProps, NextPage } from "next";
 
 import JobList from "../components/JobList";
+import { GetJobResult, Job } from "../types/types";
 import { DUMMY_DATA } from "../utils/mockdata";
 
-export const getStaticProps: GetStaticProps = async () => {
-  // const res = await fetch(
-  //   "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu"
-  // );
-  // const data = await res.json();
+const Home: NextPage<{ jobs: Job[] }> = ({ jobs }) => {
+  return (
+    <main className="container mx-auto py-4">
+      <JobList jobsList={jobs} />
+    </main>
+  );
+};
 
-  const data = DUMMY_DATA;
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch(
+    "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu"
+  );
+  const data: GetJobResult = await res.json();
+
+  // const data: GetJobResult = DUMMY_DATA;
 
   return {
     props: {
@@ -19,10 +28,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function Home(props: any) {
-  return (
-    <main className="container mx-auto py-4">
-      <JobList jobsList={props.jobs} />
-    </main>
-  );
-}
+export default Home;
