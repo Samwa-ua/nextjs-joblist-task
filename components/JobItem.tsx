@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import countDate from "../utils/countDate";
 import imageLoader from "../utils/imageLoader";
 
 import Card from "./ui/Card";
@@ -75,7 +76,7 @@ const JobItem = (props: any) => {
                 {props.address}
               </address>
               <p className="font-thin text-textFaint ml-auto">
-                Posted 2 days ago
+                {countDate(props.createdAt)}
               </p>
             </div>
           </div>

@@ -1,24 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import imageLoader from "../utils/imageLoader";
+import countDate from "../utils/countDate";
 
 const JobDetail = (props: any) => {
-  console.log(props.createdAt);
-
   const convertSalary = (salary: string) => {
     return salary
       .split("-")
       .map((el) => el.replace("k", ".000"))
       .join("-");
-  };
-
-  const convertDate = (isoDate: Date) => {
-    const date = new Date(isoDate);
-    return date.toLocaleDateString("en-Gb", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-    });
   };
 
   return (
@@ -67,7 +57,7 @@ const JobDetail = (props: any) => {
           </div>
           <div>
             <p className="font-thin text-textFaint">
-              {convertDate(props.createdAt)}
+              {countDate(props.createdAt)}
             </p>
             <p>
               At WellStar, we all share common goals. That’s what makes us so
