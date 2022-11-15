@@ -1,9 +1,10 @@
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import React from "react";
+import { CustomMarker } from "./ui/Marker";
 
 const containerStyle = {
   width: "100%",
-  height: "200px",
+  height: "180px",
   borderBottomLeftRadius: "8px",
   borderBottomRightRadius: "8px",
 };
@@ -19,7 +20,7 @@ const defaultOptions = {
   rotateControl: false,
   clickableIcons: false,
   keyboardShortcuts: false,
-  scrollwheel: false,
+  scrollwheel: true,
   disableDoubleClickZoom: false,
   fullscreenControl: false,
   zoomControl: false,
@@ -59,6 +60,7 @@ const Map = (props: any) => {
       onUnmount={onUnmount}
       options={defaultOptions}
     >
+      <CustomMarker center={center} />
       {/* Child components, such as markers, info windows, etc. */}
       <></>
     </GoogleMap>

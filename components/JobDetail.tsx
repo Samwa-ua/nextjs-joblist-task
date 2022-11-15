@@ -165,11 +165,11 @@ const JobDetail = (props: any) => {
           </div>
         </div>
         <div>
-          <div className="bg-[url('../public/images/AddressBG.png')] bg-contain bg-no-repeat bg-slate-700 text-white w-80 text-left rounded-t-md py-3 pl-20">
+          <div className="bg-[url('../public/images/AddressBG.png')] bg-contain bg-no-repeat bg-slate-700 text-white w-80 h-44 text-left rounded-t-md pt-8 pl-20">
             <address>{props.address}</address>
             <h2>{props.name}</h2>
-            <h2>{props.email}</h2>
             <h2>{props.phone}</h2>
+            <h2>{props.email}</h2>
           </div>
           {/* <div className="bg-lightBlue text-white w-80 text-left rounded-b-md py-3 pl-20"> */}
           <Map location={props.location} />
