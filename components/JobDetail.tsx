@@ -3,6 +3,7 @@ import Image from "next/image";
 import imageLoader from "../utils/imageLoader";
 import countDate from "../utils/countDate";
 import { useEffect, useState } from "react";
+import Map from "./Map";
 
 const JobDetail = (props: any) => {
   const convertSalary = (salary: string) => {
@@ -170,12 +171,9 @@ const JobDetail = (props: any) => {
             <h2>{props.email}</h2>
             <h2>{props.phone}</h2>
           </div>
-          <div className="bg-lightBlue text-white w-80 text-left rounded-b-md py-3 pl-20">
-            <address>{props.address}</address>
-            <h2>{props.name}</h2>
-            <h2>{props.email}</h2>
-            <h2>{props.phone}</h2>
-          </div>
+          {/* <div className="bg-lightBlue text-white w-80 text-left rounded-b-md py-3 pl-20"> */}
+          <Map location={props.location} />
+          {/* </div> */}
         </div>
       </div>
 
