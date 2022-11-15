@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import imageLoader from "../utils/imageLoader";
 import countDate from "../utils/countDate";
+import { useEffect, useState } from "react";
 
 const JobDetail = (props: any) => {
   const convertSalary = (salary: string) => {
@@ -10,6 +11,29 @@ const JobDetail = (props: any) => {
       .map((el) => el.replace("k", ".000"))
       .join("-");
   };
+
+  const [updatedDescription, setUpdatedDescription] = useState({
+    mainDescription: "",
+    responsibilityTitle: "",
+    responsibilityDescription: "",
+    compensationTitle: "",
+    compensationDescription: "",
+  });
+
+  const parseText = (descriptionFromApi: string) => {
+    const splitedText = descriptionFromApi.split("\n");
+    setUpdatedDescription({
+      mainDescription: splitedText[1],
+      responsibilityTitle: splitedText[3],
+      responsibilityDescription: splitedText[4],
+      compensationTitle: splitedText[6],
+      compensationDescription: splitedText[7],
+    });
+  };
+
+  useEffect(() => {
+    parseText(props.description);
+  }, []);
 
   return (
     <section className="container mx-auto my-12 ">
@@ -56,24 +80,21 @@ const JobDetail = (props: any) => {
             </div>
           </div>
           <div>
-            <p className="font-thin text-textFaint">
+            <p className="font-thin text-textFaint py-3">
               {countDate(props.createdAt)}
             </p>
-            <p>
-              At WellStar, we all share common goals. That’s what makes us so
-              successful – and such an integral part of our communities. We want
-              the same things, for our organization, for our patients, and for
-              our colleagues. As the most integrated healthcare provider in
-              Georgia, this means we pride ourselves on investing in the
-              communities that we serve. We continue to provide innovative care
-              models, focused on improving quality and access to healthcare.
-            </p>
-            <h3 className="font-bold">Responsibilities</h3>
-            <p>{props.description}</p>
+            <p>{updatedDescription.mainDescription}</p>
+            <h3 className="font-bold pt-4">
+              {updatedDescription.responsibilityTitle}
+            </h3>
+            <p>{updatedDescription.responsibilityDescription}</p>
           </div>
-          <h3 className="font-bold mt-5">Compensation & Benefits:</h3>
+          <h3 className="font-bold pt-4">
+            {updatedDescription.compensationTitle}
+          </h3>
+          <p>{updatedDescription.compensationDescription}</p>
           <ul className="list-disc">
-            {props.benefits.map((benefit: any) => (
+            {props.benefits.map((benefit: string) => (
               <li key={benefit}>{benefit}</li>
             ))}
           </ul>
