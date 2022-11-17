@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { Job } from "../types/types";
 import countDate from "../utils/countDate";
 import imageLoader from "../utils/imageLoader";
 
 import Card from "./ui/Card";
 
-const JobItem = (props: any) => {
+const JobItem = (props: Job) => {
   const router = useRouter();
   const showDetailsHandler = () => {
     router.push("/" + props.id);
@@ -15,11 +16,12 @@ const JobItem = (props: any) => {
     <li className="list-none">
       <Card>
         <div className="p-3 flex">
-          <div className="flex-none pt-4">
+          <div className="flex-none pt-2">
             <Image
+              className="rounded-full h-[85px]"
               loader={imageLoader}
               unoptimized
-              src="/images/template_avatar.png"
+              src={props.pictures[0]}
               width={85}
               height={85}
               alt="Avatar"
@@ -28,7 +30,7 @@ const JobItem = (props: any) => {
           <div className="flex-auto p-4">
             <div className="flex justify-between">
               <h3
-                className="cursor-pointer font-bold"
+                className="cursor-pointer font-bold w-fit"
                 onClick={showDetailsHandler}
               >
                 {props.title}
@@ -46,7 +48,7 @@ const JobItem = (props: any) => {
             </div>
             <div className="flex justify-between">
               <p className="font-thin text-textFaint">
-                Department name • Allgemeines Krankenhaus der Stadt Wien - AKH
+                Department name • {props.name}
               </p>
               <span>
                 <Image

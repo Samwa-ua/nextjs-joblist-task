@@ -10,6 +10,10 @@ export interface Info {
     prev: null
 }
 
+export interface Jobs {
+    jobsList: Job[]
+};
+
 export interface Job {
     id: string;
     name: string;
@@ -18,25 +22,16 @@ export interface Job {
     title: string;
     salary: string;
     address: string;
-    benefits: Benefit[];
-    location: Location;
+    benefits: string[];
+    location: {
+        lat: number;
+        long: number;
+    };
     pictures: string[];
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt: string;
+    updatedAt: string;
     description: string;
-    employment_type: EmploymentType[];
-}
-
-export enum Benefit {
-    FlexibleHours = "Flexible hours",
-    PayVocations = "Pay vocations",
-    Relocation = "Relocation",
-}
-
-export enum EmploymentType {
-    FullTime = "Full time",
-    PartTime = "Part time",
-    Temporary = "Temporary",
+    employment_type: string[];
 }
 
 export interface Location {
@@ -44,7 +39,6 @@ export interface Location {
         lat: number;
         long: number;
     }
-
 }
 
 export interface CustomMarkerProps {

@@ -4,8 +4,10 @@ import imageLoader from "../utils/imageLoader";
 import countDate from "../utils/countDate";
 import { useEffect, useState } from "react";
 import Map from "./Map";
+import { Job } from "../types/types";
+import AdditionalInfo from "./JobDetails/AdditionalInfo";
 
-const JobDetail = (props: any) => {
+const JobDetail = (props: Job) => {
   const convertSalary = (salary: string) => {
     return salary
       .split("-")
@@ -105,32 +107,11 @@ const JobDetail = (props: any) => {
               APPLY NOW
             </button>
           </div>
+          <AdditionalInfo
+            employmentTypes={props.employment_type}
+            benefits={props.benefits}
+          />
 
-          <div>
-            <h3 className="font-bold">Additional info</h3>
-            <h4>Employment type</h4>
-            <div className="flex gap-1">
-              <p className="bg-indigo-200 text-indigo-800 font-bold w-52 p-1 text-center  rounded-md">
-                Full time
-              </p>
-              <p className="bg-indigo-200 text-indigo-800 font-bold w-52 p-1 text-center  rounded-md">
-                Part time
-              </p>
-              <p className="bg-indigo-200 text-indigo-800 font-bold w-52 p-1 text-center  rounded-md">
-                Temporary
-              </p>
-            </div>
-
-            <h4>Benefits</h4>
-            <div className="flex gap-1">
-              <p className="bg-amber-100 text-stone-500 font-bold w-52 p-1 text-center  rounded-md">
-                Flexible shedule
-              </p>
-              <p className="bg-amber-100 text-stone-500 font-bold w-52 p-1 text-center  rounded-md">
-                Relocation assistance
-              </p>
-            </div>
-          </div>
           <div className="my-6">
             <h3 className="font-bold">Attached images</h3>
             <div className="flex gap-2 h-52 justify-between ">
@@ -171,9 +152,7 @@ const JobDetail = (props: any) => {
             <h2>{props.phone}</h2>
             <h2>{props.email}</h2>
           </div>
-          {/* <div className="bg-lightBlue text-white w-80 text-left rounded-b-md py-3 pl-20"> */}
-          <Map location={props.location} />
-          {/* </div> */}
+          {/* <Map location={props.location} /> */}
         </div>
       </div>
 

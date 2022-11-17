@@ -1,9 +1,10 @@
+import { Job, Jobs } from "../types/types";
 import JobItem from "./JobItem";
 
-const JobList = (props: any) => {
+const JobList = (props: Jobs) => {
   return (
     <ul>
-      {props.jobsList.map((job: any) => (
+      {props.jobsList.map((job: Job) => (
         <JobItem key={job.id} {...job} />
       ))}
     </ul>
