@@ -152,7 +152,7 @@ const JobDetail = (props: Job) => {
             <h2>{props.phone}</h2>
             <h2>{props.email}</h2>
           </div>
-          {/* <Map location={props.location} /> */}
+          <Map location={props.location} />
         </div>
       </div>
 

@@ -27,7 +27,7 @@ const defaultOptions = {
   zoomControl: false,
 };
 
-const Map = (props: Location) => {
+const Map = (props: { location: Location }) => {
   const center = {
     lat: props.location.lat,
     lng: props.location.long,

@@ -23,10 +23,7 @@ export interface Job {
     salary: string;
     address: string;
     benefits: string[];
-    location: {
-        lat: number;
-        long: number;
-    };
+    location: Location;
     pictures: string[];
     createdAt: string;
     updatedAt: string;
@@ -35,10 +32,8 @@ export interface Job {
 }
 
 export interface Location {
-    location: {
-        lat: number;
-        long: number;
-    }
+    lat: number;
+    long: number;
 }
 
 export interface CustomMarkerProps {
