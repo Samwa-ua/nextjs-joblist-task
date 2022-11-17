@@ -27,10 +27,10 @@ const defaultOptions = {
   zoomControl: false,
 };
 
-const Map = ({ location }: Location) => {
+const Map = (props: Location) => {
   const center = {
-    lat: location.lat,
-    lng: location.long,
+    lat: props.location.lat,
+    lng: props.location.long,
   };
 
   const { isLoaded } = useJsApiLoader({
@@ -48,7 +48,7 @@ const Map = ({ location }: Location) => {
       <CustomMarker center={center} />
     </GoogleMap>
   ) : (
-    <p>The map is currently unavailable</p>
+    <></>
   );
 };
 
