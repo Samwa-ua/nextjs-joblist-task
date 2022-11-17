@@ -1,5 +1,6 @@
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import React from "react";
+import { Location } from "../types/types";
 import { CustomMarker } from "./ui/Marker";
 
 const containerStyle = {
@@ -26,10 +27,10 @@ const defaultOptions = {
   zoomControl: false,
 };
 
-const Map = (props: any) => {
+const Map = ({ location }: Location) => {
   const center = {
-    lat: props.location.lat,
-    lng: props.location.long,
+    lat: location.lat,
+    lng: location.long,
   };
 
   const { isLoaded } = useJsApiLoader({
@@ -47,7 +48,7 @@ const Map = (props: any) => {
       <CustomMarker center={center} />
     </GoogleMap>
   ) : (
-    <></>
+    <p>The map is currently unavailable</p>
   );
 };
 

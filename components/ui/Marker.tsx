@@ -1,11 +1,5 @@
 import { Marker } from "@react-google-maps/api";
-
-interface CustomMarkerProps {
-  center: {
-    lat: number;
-    lng: number;
-  };
-}
+import { CustomMarkerProps } from "../../types/types";
 
 export const CustomMarker = ({ center }: CustomMarkerProps) => {
   return (
