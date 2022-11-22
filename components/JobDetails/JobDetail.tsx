@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import imageLoader from "../utils/imageLoader";
-import countDate from "../utils/countDate";
+import imageLoader from "../../utils/imageLoader";
+import countDate from "../../utils/countDate";
 import { useEffect, useState } from "react";
-import Map from "./Map";
-import { Job } from "../types/types";
-import AdditionalInfo from "./JobDetails/AdditionalInfo";
+import Map from "../Map";
+import { Job } from "../../types/types";
+import AdditionalInfo from "./AdditionalInfo";
+import ImagesDetails from "./ImagesDetails";
 
 const JobDetail = (props: Job) => {
   const convertSalary = (salary: string) => {
@@ -111,10 +112,10 @@ const JobDetail = (props: Job) => {
             employmentTypes={props.employment_type}
             benefits={props.benefits}
           />
-
-          <div className="my-6">
+          <ImagesDetails images={props.pictures} />
+          {/* <div className="my-6">
             <h3 className="font-bold">Attached images</h3>
-            <div className="flex gap-2 h-52 justify-between ">
+            <div className="flex gap-2 h-52 ">
               <Image
                 loader={imageLoader}
                 unoptimized
@@ -143,7 +144,7 @@ const JobDetail = (props: Job) => {
                 alt="temp"
               />
             </div>
-          </div>
+          </div> */}
         </div>
         <div>
           <div className="bg-[url('../public/images/AddressBG.png')] bg-contain bg-no-repeat bg-slate-700 text-white w-80 h-44 text-left rounded-t-md pt-8 pl-20">

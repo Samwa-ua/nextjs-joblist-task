@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import JobDetail from "../../components/JobDetail";
+import JobDetail from "../../components/JobDetails/JobDetail";
 import { Job } from "../../types/types";
 import { DUMMY_DATA } from "../../utils/mockdata";
 
