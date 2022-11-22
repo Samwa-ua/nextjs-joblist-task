@@ -1,27 +1,37 @@
-# Next.js + Tailwind CSS Example
+## Description
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+A small project to test your skills with NextJs, Typescript and TailwindCSS
 
-## Deploy your own
+## Installation
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+To run this project on your local machine:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+- Clone the repo
+- Install [node.js and npm](https://nodejs.org/)
+- Install project dependencies:
 
-## How to use
+> ```bash
+> cd aleannlabtask
+> npm install
+> ```
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+---
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+### Usage
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+To run the server you need to do the following:
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+> ```bash
+> cd aleannlabtask
+> npm run dev
+> ```
+>
+> ``
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+**Client app** located on **<http://localhost:3000/>**. The app will automatically reload if you change any of the source files.
+
+## Developers
+
+| Name              | GitHub Profile                |
+| ----------------- | ----------------------------- |
+| Andrii Skokovskyi | <https://github.com/Samwa-ua> |
