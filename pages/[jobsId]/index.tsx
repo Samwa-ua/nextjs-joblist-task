@@ -4,7 +4,7 @@ import JobDetail from "../../components/JobDetail";
 import { Job } from "../../types/types";
 import { DUMMY_DATA } from "../../utils/mockdata";
 
-const JobDetails = (props: any) => {
+const JobDetails = (props: { jobsData: Job }) => {
   return (
     <div className="bg-white">
       <JobDetail {...props.jobsData} />
@@ -20,7 +20,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const jobsList = DUMMY_DATA;
 
-  const paths = jobsList.map((job: any) => ({
+  const paths = jobsList.map((job: Job) => ({
     params: { jobsId: job.id },
   }));
 
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const data = DUMMY_DATA;
 
-  const jobsData = data.find((job: any) => job.id === jobsId);
+  const jobsData = data.find((job: Job) => job.id === jobsId);
 
   return {
     props: {

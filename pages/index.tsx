@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from "next";
 
 import JobList from "../components/JobList";
-import { GetJobResults, Job } from "../types/types";
+import { GetJobResults, Job, } from "../types/types";
 import { DUMMY_DATA } from "../utils/mockdata";
 
 const Home: NextPage<{ jobs: Job[] }> = ({ jobs }) => {
@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
   // );
   // const data: GetJobResults = await res.json();
 
-  const data: any = DUMMY_DATA;
+  const data: Job[] = DUMMY_DATA;
 
   return {
     props: {
