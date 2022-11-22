@@ -11,7 +11,7 @@ To run this project on your local machine:
 - Install project dependencies:
 
 > ```bash
-> cd aleannlabtask
+> cd nextjs-joblist-task
 > npm install
 > ```
 
@@ -22,7 +22,7 @@ To run this project on your local machine:
 To run the server you need to do the following:
 
 > ```bash
-> cd aleannlabtask
+> cd nextjs-joblist-task
 > npm run dev
 > ```
 >
