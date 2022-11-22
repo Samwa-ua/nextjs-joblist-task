@@ -7,6 +7,7 @@ import Map from "../Map";
 import { Job } from "../../types/types";
 import AdditionalInfo from "./AdditionalInfo";
 import ImagesDetails from "./ImagesDetails";
+import LeftArrowIcon from "../ui/LeftArrowIcon";
 
 const JobDetail = (props: Job) => {
   const convertSalary = (salary: string) => {
@@ -113,38 +114,6 @@ const JobDetail = (props: Job) => {
             benefits={props.benefits}
           />
           <ImagesDetails images={props.pictures} />
-          {/* <div className="my-6">
-            <h3 className="font-bold">Attached images</h3>
-            <div className="flex gap-2 h-52 ">
-              <Image
-                loader={imageLoader}
-                unoptimized
-                width={200}
-                height={100}
-                className="bg-cover rounded-md"
-                src={props.pictures[0]}
-                alt="temp"
-              />
-              <Image
-                loader={imageLoader}
-                unoptimized
-                width={200}
-                height={100}
-                className="bg-cover rounded-md"
-                src={props.pictures[1]}
-                alt="temp"
-              />
-              <Image
-                loader={imageLoader}
-                unoptimized
-                width={200}
-                height={100}
-                className="bg-cover rounded-md"
-                src={props.pictures[2]}
-                alt="temp"
-              />
-            </div>
-          </div> */}
         </div>
         <div>
           <div className="bg-[url('../public/images/AddressBG.png')] bg-contain bg-no-repeat bg-slate-700 text-white w-80 h-44 text-left rounded-t-md pt-8 pl-20">
@@ -159,9 +128,11 @@ const JobDetail = (props: Job) => {
 
       <button
         type="button"
-        className="cursor-pointer p-2 mt-6 rounded-md bg-gray-400"
+        className=" cursor-pointer p-2 mt-6 rounded-md bg-gray-400"
       >
-        <Link href="/">Return to job Board</Link>
+        <Link href="/" className="flex">
+          <LeftArrowIcon /> Return to job Board
+        </Link>
       </button>
     </section>
   );

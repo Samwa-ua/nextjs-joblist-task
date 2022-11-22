@@ -5,6 +5,10 @@ import countDate from "../utils/countDate";
 import imageLoader from "../utils/imageLoader";
 
 import Card from "./ui/Card";
+import StarIconEmpty from "./ui/StarIconEmpty";
+import StarIconFull from "./ui/StarIconFull";
+import StarIcon from "./ui/StarIconFull";
+import StarIconHalf from "./ui/StarIconHalf";
 
 const JobItem = (props: Job) => {
   const router = useRouter();
@@ -50,15 +54,12 @@ const JobItem = (props: Job) => {
               <p className="font-thin text-textFaint">
                 Department name • {props.name}
               </p>
-              <span>
-                <Image
-                  loader={imageLoader}
-                  unoptimized
-                  src="/images/Rating.png"
-                  width={96}
-                  height={18}
-                  alt="Stars"
-                />
+              <span className="flex">
+                <StarIconFull />
+                <StarIconFull />
+                <StarIconFull />
+                <StarIconHalf />
+                <StarIconEmpty />
               </span>
             </div>
             <div className="flex">

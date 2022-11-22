@@ -1,13 +1,15 @@
 import { GetStaticProps, NextPage } from "next";
 
 import JobList from "../components/JobList";
-import { GetJobResults, Job, } from "../types/types";
+import Pagination from "../components/Pgination";
+import { GetJobResults, Job } from "../types/types";
 import { DUMMY_DATA } from "../utils/mockdata";
 
 const Home: NextPage<{ jobs: Job[] }> = ({ jobs }) => {
   return (
     <main className="container mx-auto py-4">
       <JobList jobsList={jobs} />
+      <Pagination />
     </main>
   );
 };
